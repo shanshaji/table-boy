@@ -1,6 +1,6 @@
 {
   "name": "table-boy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple to use react table, which gives you lots of functions outta box",
   "main": "build/index.js",
   "scripts": {
