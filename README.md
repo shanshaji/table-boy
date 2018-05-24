@@ -5,12 +5,11 @@ An easy to use react table with server side pagination and server side sorting, 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Look at github page
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
+This is a component made by react for react.
 ```
 Give examples
 ```
@@ -18,7 +17,9 @@ Give examples
 ### Installing
 
 npm i table-boy
+```
 import TableBoy from 'table-boy'
+```
 
 ```
 <TableBoy 
@@ -31,6 +32,8 @@ import TableBoy from 'table-boy'
 />
 ```
 example:
+
+```
 <TableBoy 
     titles={[{title: "Name", attribute: "name",sortable:"yes"},{title: "Language", attribute: ["language", "name"],sortable:"yes"},{title: "Format", attribute: ["format", "name"]},{title: "Certificate", attribute: ["certificate", "name"]},{title: "Actions", attribute: "actions"}]} // title will be the title of table, attribute will be the attribute of db table, which data we need to show in body[use array to call something like language.name], sortable to toggle sort, 
     values={this.props.movies.movies ? this.props.movies:''}//with page_number for pagination
@@ -39,12 +42,18 @@ example:
     action_methods={{edit:"/movies/edit/",delete:this.props.deleteMovie,
     dispatch:this.props.dispatch}}// dispatch an action, for example delete.
 />
+```
+simple example 
+```
+<TableBoy 
+    titles={[{title:"heading",attribute:"value"}]}  
+    values={values with pagination count}
+    body={values}
+    pagination_method={method to call the data from server side}
+/>
 
 ```
-until finished
-```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
