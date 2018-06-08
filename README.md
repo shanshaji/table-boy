@@ -11,25 +11,51 @@ Look at github page
 
 This is a component made by react for react.
 ```
-Give examples
+react, react-router are required for this app to run
+
 ```
 
 ### Installing
 
-npm i table-boy
 ```
-import TableBoy from 'table-boy'
+npm i table-boy
+
+```
+Import table-boy to your Component
+
+```
+// ES6
+import TableBoy from 'table-boy';
+// ES5
+var TableBoy = require("table-boy").default;
+
+```
+That's it you're done. Now you can easily build tables, with server side pagination and server side sorting.
+
+But What if you only need pagination and no table?, Well you can achieve that by just importing our pagination component
+```
+import {Pagination} from 'table-boy';
 ```
 
 ```
 <TableBoy 
-    titles={[{title:"heading",attribute:"value",sortable:"yes",customTd:"yes",className:"class"/*or for customTD */ (data)=>this.customClassName(data)}]}  
+    titles={[{title:"heading",attribute:"value",sortable:"yes",customTd:"yes",className:"class"//or for customTD (data)=>this.customClassName(data)}]}  
     values={values with pagination count}
     body={values without pagination count, raw data for table body alone}//content-alone
     pagination_method={method to call the data from server side}
     action_methods={action methods, show edit delete and openPAnel is already given}
     action_className={{action:(value)=>this.actionCustomClass(value),onChange:"value"}}
 />
+```
+```
+<Pagination 
+    current_page={current_page_no} 
+    end_page={total_number_of_pages} 
+    previousClick={()=>this.fetchPage(current_page_no-1)} //action to get data of previous page, since we are using server side pagination
+    nextClick={()=>this.fetchPage(current_page_no+1)} //action to get data of next page, since we are using server side pagination
+    pageClick={(index)=>this.fetchPage(index)} // this action will fetch data, when a page number is clicked
+/>
+// NOTE: action name can be anything, its the way you define the action.
 ```
 example:
 
@@ -55,41 +81,13 @@ simple example
 ```
 
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
+## Built With React
 
 
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/shanshaji/table-boy/blob/master/CODE_OF_CONDUCT.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-. 
 
 ## Authors
 
