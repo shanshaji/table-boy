@@ -6,9 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel lib -d build",
-    "lint": "eslint lib/**; exit 0",
+    "lint": "eslint lib",
     "lint:watch": "esw -w lib/**",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "prettify": "prettier --write \"lib/**/*.{js,scss,css,json}\" "
+  },
+  "lint-staged": {
+    "*.{js,scss,css}": [
+      "npm run prettify",
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
@@ -26,13 +39,23 @@
   },
   "homepage": "https://github.com/shanshaji/table-boy#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.6",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^5.2.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
     "polished": "^1.9.2",
+    "prettier": "1.15.3",
     "prop-types": "^15.6.1",
     "styled-components": "^3.2.6"
   },
